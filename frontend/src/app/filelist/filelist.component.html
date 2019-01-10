@@ -1,0 +1,9 @@
+<p>
+  filelist works!
+</p>
+
+<ul class="products">
+  <li *ngFor="let p of fileList; let i=index;">
+    {{p.id + " " + p.title}}
+  </li>
+</ul>
