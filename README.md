@@ -3,7 +3,7 @@ A web based audio streaming allowing you to access your music.
 
 Very early state.
 
-##Build
+## Build
 ```
 cd frontend
 npm i
