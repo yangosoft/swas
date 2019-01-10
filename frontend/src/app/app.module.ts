@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FilelistComponent } from './filelist/filelist.component';
+import { AudioplayerComponent } from './audioplayer/audioplayer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FilelistComponent
+    FilelistComponent,
+    AudioplayerComponent
   ],
   imports: [
     BrowserModule,

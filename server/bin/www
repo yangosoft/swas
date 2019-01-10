@@ -11,9 +11,10 @@ var http = require('http');
 var Scanner = require('../scanner/scanner');
 
 var s = new Scanner([process.env.HOME +"/Music/"]);
+console.log("Starting scan...");
 s.scan();
 app.set("scanner",s);
-
+console.log("Done!");
 /**
  * Get port from environment and store in Express.
  */

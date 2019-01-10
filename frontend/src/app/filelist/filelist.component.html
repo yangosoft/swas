@@ -1,9 +1,6 @@
-<p>
-  filelist works!
-</p>
 
 <ul class="products">
-  <li *ngFor="let p of fileList; let i=index;">
-    {{p.id + " " + p.title}}
+  <li *ngFor="let p of fileList; let i=index;" (click)="onSelect(i)">
+    <a href="#">{{p.tags.title + " " + p.tags.album + " " + p.tags.artist +  " " + p.title}}</a>
   </li>
 </ul>

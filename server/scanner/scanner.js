@@ -1,3 +1,4 @@
+  const NodeID3 = require('node-id3');
 class Scanner {
 
 
@@ -22,31 +23,47 @@ class Scanner {
       if (fs.statSync(dir + file).isDirectory()) {
         filelist = that.walkSync(dir + file + '/', filelist);
       } else {
-          let p =
-          {
-            title:  dir + file,
-            id: filelist.length
+
+        if (file.endsWith("mp3")) {
+          var tags = {
+            title: "unkwnow",
+            album: "unkwnow",
+            artist: "unkwnow"
+          };
+        /*  try {
+            tags = NodeID3.read(dir+file);
+          } catch (e) {
+              console.error(e);
+          } finally {
+
+          }*/
+
+          //console.log(tags);
+          let p = {
+            title: file,
+            id: filelist.length,
+            path: dir + file,
+            tags: tags
           };
 
-        filelist.push(p);
+          filelist.push(p);
+        }
 
-        //console.log(dir + file);
+
       }
     });
     return filelist;
   }
 
-  getPathById(id)
-  {
-    if(id >= this.lstFiles.length)
-    {
+  getPathById(id) {
+    if (id >= this.lstFiles.length) {
+      console.error("id doesn't exists");
       return null;
     }
-    return this.lstFiles[id];
+    return this.lstFiles[id].path;
   }
 
-  getFileList()
-  {
+  getFileList() {
     return this.lstFiles;
   }
 

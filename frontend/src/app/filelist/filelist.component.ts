@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { DataRetrieverService } from '../data-retriever.service';
-
+import {AudioplayerComponent} from '../audioplayer/audioplayer.component';
 
 @Component({
   selector: 'app-filelist',
@@ -9,6 +9,8 @@ import { DataRetrieverService } from '../data-retriever.service';
 })
 export class FilelistComponent implements OnInit {
   fileList: any = [];
+  //@Output() myEvent = new EventEmitter();
+  @Input()  audioRef:AudioplayerComponent;
 
   constructor(public rest:DataRetrieverService) { }
 
@@ -22,6 +24,13 @@ export class FilelistComponent implements OnInit {
       console.log(data);
       this.fileList = data;
     });
+  }
+
+  onSelect(id: number)
+  {
+    console.log("ID: " + id);
+    console.log(this.audioRef);
+    this.audioRef.onChangeId(id);
   }
 
 }
