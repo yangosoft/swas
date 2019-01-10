@@ -15,8 +15,13 @@ export class AudioplayerComponent implements OnInit {
 
   ngOnInit() {
       this.audioPath = "/a.mp3";
+      this.audioplayer.nativeElement.onended = this.onEnded;
   }
 
+  onEnded()
+  {
+    console.log("Audio ended");
+  }
   onChangeId(id: number)
   {
 
